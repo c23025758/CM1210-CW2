@@ -1,0 +1,15 @@
+QUICKSORT(array, low, high)
+    if low < high
+        pivot_index = PARTITION(array, low, high)
+        QUICKSORT(array, low, pivot_index - 1)
+        QUICKSORT(array, pivot_index + 1, high)
+
+PARTITION(array, low, high)
+    pivot = array[high]
+    i = low - 1
+    for j = low to high - 1
+        if array[j] <= pivot
+            i++
+            SWAP(array[i], array[j])
+    SWAP(array[i + 1], array[high])
+    return i + 1
